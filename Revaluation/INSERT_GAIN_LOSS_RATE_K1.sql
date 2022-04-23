@@ -1,0 +1,13 @@
+Insert into GAIN_LOSS_RATE
+   (CURRENCY_CODE, CONVERSION_RATE)
+ Values
+   ('USD', 79);
+Insert into GAIN_LOSS_RATE
+   (CURRENCY_CODE, CONVERSION_RATE)
+ Values
+   ('GBP', 100);
+Insert into GAIN_LOSS_RATE
+   (CURRENCY_CODE, CONVERSION_RATE)
+ Values
+   ('EUR', 88);
+COMMIT;
