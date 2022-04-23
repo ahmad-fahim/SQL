@@ -1,0 +1,50 @@
+MIG_ACNTS
+
+1.IF ACNTS_INOP_ACNT(47) = 1 THEN ACNTS_DORMANT_ACNT(48) will be 1
+2.ACNTS_OPENING_DATE(8) must be less then 46,49,50,51,52,53,56,67,78,79
+3.ACNTS_INT_ACCR_UPTO(51) should not be greater then ACNTS_INT_DBCR_UPTO(52)
+
+MIG_ACNTLIEN
+4.ACNTLIEN_ACNUM(1) will not be the same ACNTLIEN_LIEN_TO_ACNUM(6)
+	
+MIG_JOINTCLIENTS---fahim
+	5 .JNTCL_INDIV_CLIENT_CODE1(5)
+		JNTCL_INDIV_CLIENT_CODE2(7)
+		JNTCL_INDIV_CLIENT_CODE3(9)
+		JNTCL_INDIV_CLIENT_CODE4(11)
+		JNTCL_INDIV_CLIENT_CODE5(13)
+		JNTCL_INDIV_CLIENT_CODE6(15)
+	THIS 6 fields will must not have same values .
+MIG_PBDCONTRACTS-------fahim
+	MIGDEP_MAT_VALUE(17) can not be lesser than MIGDEP_BC_DEP_AMT(10)
+	MIGDEP_PERIODICAL_INT_AMT(21) can not be greater than MIGDEP_MAT_VALUE(17)
+	MIGDEP_INT_ACCR_UPTO(46)can not be less than MIGDEP_INT_PAID_UPTO(49)
+	MIGDEP_CLOSURE_DATE(47) can not be less than MIGDEP_EFF_DATE(6)
+	MIGDEP_MAT_DATE(14) will be MIGDEP_DEP_PRD_MONTHS(12) + MIGDEP_DEP_OPEN_DATE(5) 
+		
+MIG_RDINS 
+	RDINS_AMT_OF_PYMT(5)  must be equal to RDINS_TWDS_INSTLMNT(6) + RDINS_TWDS_PENAL_CHGS(7)+ RDINS_TWDS_INT(8)---fahim
+
+	
+MIG_LNACNTS
+	LNACNT_OUTSTANDING_BALANCE(38) WILL BE EQUAL TO LNACNT_PRIN_OS(39) + LNACNT_INT_OS(40)+ LNACNT_CHG_OS(41) ---kabir
+	LNACNT_TOT_SUSPENSE_BALANCE(45) will be equal to LNACNT_INT_SUSP_BALANCE(46)+LNACNT_CHG_SUSP_BALANCE(47)----kabir
+
+MIG_ACOP_BAL
+	ACOP_BALANCE(4) will be ACOP_PRINCIPAL_OS+ACOP_INTEREST_OS+ACOP_CHGS_OS where ACOP_BALANCE  < 0 ------ asif
+	ACOP_GL_HEAD(10) will be master mapping
+
+MIG_GLOP_BAL 
+	GLOP_GL_HEAD (2) will be master mapping
+
+--1. Periodical interest amount should not be blank.--done
+2. In our validation we need to calculate the periodical interest amount based on the interest payment frequency.
+In case of MES accounts the periodical interest payment amount has to be (Deposit Amount* Rate of Interest)/1200
+Y,M<Q , H X----- fahim
+
+
+if 
+3. For Interest Payment with ""X" frequency the periodical interest amount should be maturity amount - deposit amount. 
+4. Maturity Amount and Deposit Amount should not be same. Maturity amount also has to be calculated in our validation
+and then the same has to be compared with the amounts given by the bank.
+5.ac_dep_amount can not be greater or equal to maturi

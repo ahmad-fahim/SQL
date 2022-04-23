@@ -1,0 +1,48 @@
+The below business validations are added for MIG_PBDCONTRACT
+
+checked fraction value for MIGDEP_AC_DEP_AMT
+checked fraction value for MIGDEP_BC_DEP_AMT
+checked fraction value for MIGDEP_MAT_VALUE
+checked fraction value for MIGDEP_PERIODICAL_INT_AMT
+checked fraction value for MIGDEP_AC_INT_ACCR_AMT
+checked fraction value for MIGDEP_BC_INT_ACCR_AMT
+checked fraction value for MIGDEP_AC_INT_PAY_AMT
+checked fraction value for MIGDEP_BC_INT_PAY_AMT
+checked fraction value for MIGDEP_AC_LIEN_AMT
+		 
+checked wheather the frequency for RD account (MIGDEP_INT_PAY_FREQ) is "X" or not
+checked wheather the frequency for MES account (MIGDEP_INT_PAY_FREQ) is "X" or not
+checked wheather the frequency for FDR, DBS, TBS (MIGDEP_INT_PAY_FREQ) is "M","Q","H","Y" or not
+checked wheather the MIGDEP_MAT_VALUE - MIGDEP_BC_DEP_AMT = MIGDEP_PERIODICAL_INT_AMT or not for FDR, DBS, TBS product
+checked wheather the MIGDEP_MAT_VALUE * MIGDEP_ACTUAL_INT_RATE * YEAR = MIGDEP_PERIODICAL_INT_AMT or not for MES product
+checked wheather the MIGDEP_INT_PAID_UPTO is valid or not
+
+MIGDEP_MAT_DATE(14) should be equal to MIGDEP_EFF_DATE(6)+MIGDEP_DEP_PRD_MONTHS(12)
+
+MIGDEP_MAT_VALUE(17) can not be lesser than MIGDEP_BC_DEP_AMT(10)
+
+MIGDEP_PERIODICAL_INT_AMT(21) can not be greater than MIGDEP_MAT_VALUE(17)
+
+MIGDEP_INT_ACCR_UPTO(46) can not be less than MIGDEP_INT_PAID_UPTO(49)
+
+MIGDEP_CLOSURE_DATE(47) can not be less than MIGDEP_EFF_DATE(6)
+
+MIGDEP_MAT_DATE(14) can not be greater than MIGDEP_EFF_DATE(6)
+
+MIGDEP_EFF_DATE(6) can not be greater than MIGDEP_INT_ACCR_UPTO(46)
+
+MIGDEP_EFF_DATE(6) can not be greater than MIGDEP_INT_PAID_UPTO(49)
+
+MIGDEP_EFF_DATE(6) can not be greater than MIGDEP_INT_CALC_UPTO(61)
+
+MIGDEP_EFF_DATE(6) can not be greater than MIGDEP_INT_CALC_PAYABLE_UPTO(64)
+
+interst_accrued_amount(56) can not be less then interest paid amount(58)
+
+MIG_PBDCONTRACT MIGDEP_MAT_DATE(14) can not be less then MIGDEP_INT_ACCR_UPTO(46)
+
+MIG_PBDCONTRACT MIGDEP_MAT_DATE(14) can not be less then MIGDEP_INT_PAID_UPTO(49)
+
+MIG_PBDCONTRACT MIGDEP_MAT_DATE(14) can not be less then MIGDEP_INT_CALC_UPTO(61)
+
+MIG_PBDCONTRACT MIGDEP_MAT_DATE(14) can not be less then MIGDEP_INT_CALC_PAY_UPTO(64)
