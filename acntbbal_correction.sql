@@ -1,3 +1,5 @@
+/*On every month start dates, system should insert data in historical balance related tables. But due to some network error/system error, data insertion got inturrepted. We had to insert data manually for a particular branch.*/
+
 INSERT INTO ACNTCVDBBAL
           (ACNTCVBBAL_ENTITY_NUM,
            ACNTCVBBAL_INTERNAL_ACNUM,

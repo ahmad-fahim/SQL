@@ -1,3 +1,4 @@
+/*Script to generate the create backup table script from the whole schema for a particular branch*/
 SELECT TABLE_NAME,
       NUM_ROWS,
       FN_COL_NAME (TABLE_NAME),

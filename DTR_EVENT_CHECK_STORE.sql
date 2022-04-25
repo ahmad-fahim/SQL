@@ -1,3 +1,4 @@
+/*Triger to control the unwanted occurances in the production server even in UAT server. Someone might commit development script in deployment script which has some truncate or drop statement which might distroy the production/UAT server. This triger will protect the database from any unwanted truncate or drop.*/
 CREATE OR REPLACE TRIGGER DTR_EVENT_CHECK_STORE
    BEFORE DROP OR TRUNCATE ON SCHEMA
 DECLARE

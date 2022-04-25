@@ -1,3 +1,4 @@
+/*Day-end, Month-End takes a long time. By this SQL, we can monitor the timing for every process and also the time for a particular process. In the last column, we can see the overall time for the whole process.*/
 SELECT TO_CHAR(SODEODLOG_DATE, 'DD-MM-YYYY') SODEOD_DATE, AA.ESPROCDTL_PROCESS_NAME PROCESS_NAME, SODEODLOG_RUN_SL RUN_SL,ESPROCDTL_RUN_FREQ RUN_FREQ, 
 SODEODLOG_PROCESS_SL PROCESS_SL, AA.TOTAL_BRANCH_COMPLETED TOTAL_BRANCH,
 FLOOR ( (NVL(SODEODLOG_END_DATE, SYSDATE)  - SODEODLOG_START_DATE) * 24) HOURS,

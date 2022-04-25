@@ -1,3 +1,5 @@
+/*Full data extraction script for the BCBL. Data will be extracted from staller system(ERA infotech)*/
+
 DROP TABLE MIG_DATA_COLLECT_ERROR;
 
 CREATE TABLE MIG_DATA_COLLECT_ERROR

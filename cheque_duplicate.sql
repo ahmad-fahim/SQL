@@ -1,3 +1,4 @@
+/*Checking the data where there is any duplicate data available in the mig_cheque table and updating the data so that there is no duplicate data in the table. The data is being checking based on the prefix and leaf number of the check.*/
 select *
   from mig_cheque cc
  where (cc.cbiss_chqbk_prefix, cc.cbiss_from_leaf_num) in

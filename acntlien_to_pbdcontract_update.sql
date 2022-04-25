@@ -1,4 +1,4 @@
-
+/*Lien information in mig_pbdcontract table might be wrong. We had to depend on the information on mig_acntlien table. We needed to update the in mig_pbdcontract table from mig_acntlien table.*/
 begin
   for idx in (select al.acntlien_acnum,
                      al.acntlien_lien_date,

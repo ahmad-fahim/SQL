@@ -1,3 +1,5 @@
+/*Creating divisions for the divisionwise operations based on the data given by the customer*/
+
 CREATE TABLE DIV_DATA (
 DEPT_CODE	VARCHAR2(3),
 DEPT_NAME	VARCHAR2(100),

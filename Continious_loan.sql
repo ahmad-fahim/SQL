@@ -1,3 +1,4 @@
+/*Script to generate data to the customer. */
 CREATE TABLE BACKUPTABLE.CONTINUOUS_LOAN_FORMAT AS 
 SELECT ROWNUM SL,
        ACNTS_BRN_CODE Branch_code,

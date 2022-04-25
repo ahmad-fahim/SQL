@@ -1,3 +1,5 @@
+/*Cash Transaction Report of the clients of the whole bank.*/
+
 /*
 CREATE TABLE CTR_REPORT AS  
  SELECT TRAN_DATE_OF_TRAN,

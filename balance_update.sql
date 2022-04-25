@@ -1,3 +1,4 @@
+/*update in the loan account's balance related tables according to the data given by the customers*/
 begin
   for idx in (select i.iaclink_internal_acnum, l.balance
                 from iaclink i, acntbal a, loan_bal l

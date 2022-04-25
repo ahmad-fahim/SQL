@@ -1,3 +1,4 @@
+/*Patitioning the CBISS table based on the branch code*/
 CREATE TABLE CBISS_PART
 (
   CBISS_ENTITY_NUM       NUMBER(4)             ,

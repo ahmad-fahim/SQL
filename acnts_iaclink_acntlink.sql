@@ -1,3 +1,4 @@
+/*Typically the total number of data in acnts, iaclink and acntlink table needs to be same. Sometimes, we face problem like the total number of records in those 3 tables are not same. So, we had to rely on the records in the table which has the maximum records.*/
 insert into iaclink 
 select 1                       IACLINK_ENTITY_NUM,
        a.acnts_internal_acnum  IACLINK_INTERNAL_ACNUM,
