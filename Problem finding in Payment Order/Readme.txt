@@ -1,0 +1,1 @@
+Due to some bug in the Payment order module, there were huge balance mismatch in the general Ladger and instrument level in the production. After few days, system became stable. But, before that, in many branches, the mismatch happeded. We had the find the branches and had to correct those mismatch. 

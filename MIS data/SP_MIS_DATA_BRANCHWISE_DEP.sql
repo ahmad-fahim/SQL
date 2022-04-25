@@ -1,28 +1,20 @@
-CREATE TABLE BRANCHWISE_DATA_DEP
-(
-   BRANCH_CODE       NUMBER (6),
-   REPORTING_DATE    VARCHAR2 (8),
-   TYPE_OF_DEPOSIT   VARCHAR2 (10),
-   F12               VARCHAR2 (10),
-   INT_RATE          NUMBER (18, 3),
-   BALANCE           NUMBER (18, 3)
-);
-
-
-
-
-
-
-
-
-CREATE OR REPLACE PROCEDURE SP_MIS_DATA_BRANCHWISE_DEP (V_ENTITY_NUM    NUMBER,
-                                                    P_FROM_DATE     DATE,
-													P_TO_DATE       DATE)
+CREATE OR REPLACE PROCEDURE SP_MIS_DATA_BRANCHWISE_DEP (
+   V_ENTITY_NUM    NUMBER,
+   P_FROM_DATE     DATE,
+   P_TO_DATE       DATE,
+   P_FROM_BRN      NUMBER,
+   P_TO_BRN        NUMBER
+   )
 IS
 BEGIN
-   FOR IDX IN (  SELECT *
-                   FROM MIG_DETAIL
-               ORDER BY BRANCH_CODE)
+   FOR IDX IN (SELECT *
+              FROM (  SELECT BRANCH_CODE, ROWNUM BRANCH_SL
+                        FROM MIG_DETAIL
+                    ORDER BY BRANCH_CODE)
+             WHERE     BRANCH_SL BETWEEN P_FROM_BRN AND P_TO_BRN
+                   AND BRANCH_CODE NOT IN (SELECT B.BRANCH_CODE
+                                             FROM BRANCHWISE_DATA_DEP B )
+          ORDER BY BRANCH_CODE)
    LOOP
       INSERT INTO BRANCHWISE_DATA_DEP
            SELECT IDX.BRANCH_CODE,
@@ -93,14 +85,22 @@ BEGIN
                                 0
                           END
                              BALANCE,
-                          CASE
-                             WHEN ACNTS_AC_TYPE IN ('SD')
-                             THEN
-                                'L2107'
-                             ELSE
-                                NVL ( (GET_F12_CODE (ACNTS_GLACC_CODE)), 'F12')
-                          END
-                             F12
+                          CASE 
+                             WHEN ACNTS_AC_TYPE IN ('SD') 
+                                THEN 'L2107'  
+                             WHEN (CASE  WHEN GET_F12_CODE(ACNTS_GLACC_CODE)='L2607' 
+                                            THEN LPAD (NVL (NVL (100, 0), '0'), 3, '0') 
+                                         ELSE 
+                                            LPAD (NVL (NVL (ACTYPE_BSR_AC_TYPE, 0), '0'), 3, '0') 
+                                   END ) = '100'
+                                THEN 'L2101' 
+                          ELSE 
+                                NVL((GET_F12_CODE(ACNTS_GLACC_CODE,  NVL(CASE WHEN ACNTS_CLOSURE_DATE IS NULL OR ACNTS_CLOSURE_DATE > P_TO_DATE THEN (SELECT NVL ( NVL (ACNTBBAL_BC_OPNG_CR_SUM, 0) - NVL (ACNTBBAL_BC_OPNG_DB_SUM, 0), 0) FROM ACNTBBAL
+                                WHERE     ACNTBBAL_ENTITY_NUM = ACNTS_ENTITY_NUM
+                                AND ACNTBBAL_INTERNAL_ACNUM =  ACNTS_INTERNAL_ACNUM
+                                AND ACNTBBAL_CURR_CODE = ACNTS_CURR_CODE
+                                AND ACNTBBAL_YEAR = TO_NUMBER ( TO_CHAR (P_TO_DATE + 1, 'YYYY'))
+                                AND ACNTBBAL_MONTH = TO_NUMBER ( TO_CHAR (P_TO_DATE + 1, 'MM'))) ELSE 0 END,0)  )), 'F12') END F12
                      FROM ACNTS,
                           MBRN,
                           CLIENTS,
@@ -253,7 +253,12 @@ BEGIN
                                 0
                           END
                              BALANCE,
-                          NVL ( (GET_F12_CODE (ACNTS_GLACC_CODE)), 'F12') F12
+                          NVL((GET_F12_CODE(ACNTS_GLACC_CODE, CASE WHEN ACNTS_CLOSURE_DATE IS NULL OR ACNTS_CLOSURE_DATE > P_TO_DATE THEN (SELECT NVL ( NVL (ACNTBBAL_BC_OPNG_CR_SUM, 0) - NVL (ACNTBBAL_BC_OPNG_DB_SUM, 0), 0) FROM ACNTBBAL
+                          WHERE     ACNTBBAL_ENTITY_NUM = ACNTS_ENTITY_NUM
+                                AND ACNTBBAL_INTERNAL_ACNUM =  ACNTS_INTERNAL_ACNUM
+                                AND ACNTBBAL_CURR_CODE = ACNTS_CURR_CODE
+                                AND ACNTBBAL_YEAR = TO_NUMBER ( TO_CHAR (P_TO_DATE + 1, 'YYYY'))
+                                AND ACNTBBAL_MONTH = TO_NUMBER ( TO_CHAR (P_TO_DATE + 1, 'MM'))) ELSE 0 END )), 'F12') F12
                      FROM ACNTS,
                           MBRN,
                           CLIENTS,
@@ -290,7 +295,7 @@ BEGIN
                    SELECT TO_CHAR (P_TO_DATE, 'DDMMYYYY') REPORTING_DATE,
                           'GL' TYPE_OF_DEPOSIT,
                           0 INT_RATE,
-                          CASE
+                      CASE
                              WHEN    NVL (
                                         (GET_F12_CODE (E.EXTGL_ACCESS_CODE)),
                                         'F12') IN
@@ -330,9 +335,8 @@ BEGIN
                                       FN_GET_CURRBUSS_DATE (GLBBAL_ENTITY_NUM,
                                                             NULL)))
                           END
-                             BALANCE,
-                          NVL ( (GET_F12_CODE (E.EXTGL_ACCESS_CODE)), 'F12')
-                             F12
+                             BALANCE,                             
+                          NVL((GET_F12_CODE(E.EXTGL_ACCESS_CODE, 1)), 'F12') F12
                      FROM RPTHEAD H,
                           RPTLAYOUTDTL L,
                           RPTHEADGLDTL D,
@@ -364,3 +368,4 @@ BEGIN
       COMMIT;
    END LOOP;
 END SP_MIS_DATA_BRANCHWISE_DEP;
+/

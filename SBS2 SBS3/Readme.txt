@@ -1,0 +1,1 @@
+All the files related to the SBS2 and SBS3 are here. There are few functions those are required for SBS2 and SBS3. SP_SBS2_DATA_QUERY and SP_SBS3_DATA_QUERY will generate the SQL and the packages(PKG_SBS2_DATA and PKG_SBS3_DATA) will generate the pipe row those are returned by the pipe function.

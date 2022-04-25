@@ -1,0 +1,1 @@
+All the files related to the Revaluation are here. There are few create statements and insert statements there necessary for the package. PKG_REVALUATION is the main package for the revaluation.
