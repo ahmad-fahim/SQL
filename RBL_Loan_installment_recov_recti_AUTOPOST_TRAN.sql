@@ -1,3 +1,4 @@
+/*For a customer, we had problems for the loan auto installment process. We had to reverse that whole thansaction and stop the process from then.*/
 SELECT DENSE_RANK() OVER (ORDER BY TRAN_BRN_CODE) BATCH_SL,
        ROW_NUMBER() OVER (PARTITION BY TRAN_BRN_CODE ORDER BY TRAN_BRN_CODE) LEG_SL,
        NULL TRAN_DATE,

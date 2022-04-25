@@ -1,3 +1,4 @@
+/*Business of the customers has been changed and due to that they needed some reports of the existing accounts. */
 SELECT *
   FROM (SELECT FACNO (1, ACNTS_INTERNAL_ACNUM) ACNTS_INTERNAL_ACNUM,
                ACNTS_OPENING_DATE OPEN_DATE,

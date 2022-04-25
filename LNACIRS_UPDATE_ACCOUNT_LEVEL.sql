@@ -1,3 +1,4 @@
+/*Update after migration*/
 UPDATE LNACIRSHIST
    SET LNACIRSH_AC_LEVEL_INT_REQD = '1'
  WHERE     LNACIRSH_ENTD_BY = 'MIG'

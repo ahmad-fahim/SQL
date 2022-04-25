@@ -1,3 +1,4 @@
+/*Statement of affairs generation process for the Year End*/
 CREATE TABLE STATMENTOFAFFAIRS_18_CASH1
 AS
    SELECT *

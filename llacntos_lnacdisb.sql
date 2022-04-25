@@ -1,3 +1,4 @@
+/*Due to some system problem, system was not updating the LLACNTOS table properly. But the update was happening in the LNACDISB table correctly. This upadte was written so that we can update the LLACNTOS table with the data of LNACDISB table.*/
 declare
   V_COUNT NUMBER := 0;
 begin

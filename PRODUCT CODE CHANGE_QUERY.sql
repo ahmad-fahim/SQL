@@ -1,3 +1,4 @@
+/*Changing the product code of a particular account. The initial idea was to change the product code of the loan accounts only. But later, we managed the changes for all type of accounts.*/
 DECLARE
   V_BATCH_NUMBER           NUMBER;
   V_BALANCE_TRANSFER_BATCH NUMBER; -- BATCH NUMBER

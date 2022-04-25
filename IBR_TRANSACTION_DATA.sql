@@ -1,3 +1,4 @@
+/*Inter branch interest calculation process had some bug and due to those bug, system calculated the interest wrongly. This script is the rectification of that problem in the production.*/
 ----------------------- Generated data ----------------------------
 
 SELECT A.BRANCH_CODE,

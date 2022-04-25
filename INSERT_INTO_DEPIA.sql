@@ -1,3 +1,4 @@
+/*Insert scrpit for DEPIA table for the rectification.*/
 INSERT INTO DEPIA 
   SELECT ACNTS_ENTITY_NUM DEPIA_ENTITY_NUM,
          ACNTS_BRN_CODE DEPIA_BRN_CODE,

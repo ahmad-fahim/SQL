@@ -1,3 +1,4 @@
+/*System generates the trial balance with a procedure and keeps the records in a temporary table. This script is the simplified format of the procedure.*/
   SELECT A.GLBBAL_BRANCH_CODE,
          A.GLBBAL_CURR_CODE,
          A.GLBBAL_BC_BAL,

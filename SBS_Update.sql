@@ -1,4 +1,4 @@
-
+/*Reporting code update after migration.*/
 
 select t.br_code,
        t.sector,
@@ -34,17 +34,6 @@ BEGIN
   
   END LOOP;
 END;
-
-
-
-
-
-
-
-
-
-
-
 
 
 

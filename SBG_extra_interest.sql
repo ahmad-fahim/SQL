@@ -1,3 +1,4 @@
+/*Rectification of the inter branch interest calculation process.*/
 ----- Step 1 : Prepare the voucher for the extra interest...
 
 INSERT INTO AUTOPOST_TRAN_TEMP

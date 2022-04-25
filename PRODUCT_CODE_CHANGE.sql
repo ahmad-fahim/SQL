@@ -1,3 +1,4 @@
+/*Manually update different tables for changing the product code of a particular account*/
 create table PRODUCT_CODE_CHANGE
 (
   BRANCH_CODE               NUMBER(5),

@@ -1,6 +1,6 @@
+/*Interest rate change for a particular GL for the inter branch interest calculation. All the impacts we considered and managed here.*/
+
 DELETE FROM AUTOPOST_TRAN ;
-
-
 
 
 INSERT INTO AUTOPOST_TRAN

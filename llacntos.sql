@@ -1,4 +1,4 @@
-
+/*LLACNTOS table rectification after migration.*/
 -- For Continuous Loans  
 insert into llacntos
   select 1,

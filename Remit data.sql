@@ -1,3 +1,4 @@
+/*Report for the customer*/
 SELECT CREDITACCOUNTNAME "Name of Benificiary",
 NULL "Address of the beneficiary",
 CBS_ACCOUNT "Beneficiary Account No.",

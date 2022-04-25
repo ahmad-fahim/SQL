@@ -1,3 +1,4 @@
+/*Table partitioning. We partitioned 5 tables based on the branch code.*/
 ALTER TABLE ACNTS DROP PRIMARY KEY CASCADE;
 
 DROP TRIGGER TRIG_INSERT_ACNTS_AMLACNTCL;

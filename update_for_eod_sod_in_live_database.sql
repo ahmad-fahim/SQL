@@ -1,3 +1,9 @@
+/*Sometimes there are some situations where we need to take backup from the live production to 
+prepare UAT for running Monthend. But if there are some unathorized balance present in the 
+production, the same data will come to the UAT as well. So, we need to clear the 
+unautorized transactions from UAT. We can execute the below script and clear the UAT server 
+for doing the test of "End of Day(EoD)"*/
+
 delete from tran2016 where TRAN_AUTH_BY is null and TRAN_DATE_OF_TRAN = '30-OCT-2016'
 AND TRAN_ENTITY_NUM = 1; 
 

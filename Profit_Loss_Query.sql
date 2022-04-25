@@ -1,3 +1,4 @@
+/*Generating the data of the profit and loss branches after year closing. This report were normally asked by the customers.*/
 SELECT TEMP_DATA.RPT_BRN_CODE,
        TEMP_DATA.TOTAL_INCOME_EXPENSE,
        CASE SIGN(TEMP_DATA.TOTAL_INCOME_EXPENSE)

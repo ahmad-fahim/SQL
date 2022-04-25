@@ -1,3 +1,4 @@
+/*The users might change the asset status of a loan account. There are some rules from the customers. We needed to change the the asset code of the accounts thouse were changed by the users from the frontend.*/
 UPDATE ASSETCLSHIST AM
    SET AM.ASSETCLSH_ASSET_CODE = 'ST'
  WHERE     AM.ASSETCLSH_ENTITY_NUM = 1

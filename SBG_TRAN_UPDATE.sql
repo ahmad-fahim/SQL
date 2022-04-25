@@ -1,3 +1,5 @@
+/*Update for the calculated interest amount. After the realtime calculation, customer requested to change the interest rate of the GL and we had to update the calculated records manually and pass the vouchers according to the newly calculated amount.*/
+
 DECLARE
 V_COUNT NUMBER :=0;
 BEGIN

@@ -1,3 +1,4 @@
+/*There are few updats those are necessary before every monthend. So, before running a monthend, we need to run the updates in the production.*/
 -------- 1. Common Update ----------
 
 

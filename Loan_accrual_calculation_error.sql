@@ -1,3 +1,4 @@
+/*Report for the accounts those had some problem in the loan interest calculation process. It was written in the development phase of loan interest process.*/
   SELECT FACNO(1,ACNT_NUM) ACNT_NUM,
          VALUE_DATE,
          AC_BAL,

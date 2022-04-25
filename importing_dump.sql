@@ -1,4 +1,4 @@
-
+/*Dump import process in the local machine*/
 Conn sys as sysdba
 
 create tablespace TBACNTS

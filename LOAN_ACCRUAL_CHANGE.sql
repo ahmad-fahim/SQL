@@ -1,3 +1,4 @@
+/*Rectification script of the loan account accrual process.*/
 DECLARE
   V_COUNT NUMBER := 0;
 BEGIN

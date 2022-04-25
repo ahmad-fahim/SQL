@@ -1,3 +1,5 @@
+-- System statistics for the management of the organization.
+
 -- number of accounts, -- 19,241,089
     -- LOAN    1728442
     -- FD    428744
