@@ -1,0 +1,1 @@
+In the initial stage of the migration from Legacy system to Intellect CBS, we had to valudate the data by excel macro. We wrote the microsoft visual basic macro codes for all the 42 migration templates. We used those templates for migration for a long time. After that we changed the validations from excel macro to Oracle stored procedures.

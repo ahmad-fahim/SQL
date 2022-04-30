@@ -1,0 +1,1 @@
+There is a business in my country for branches to transfer balance from some particular general ladger to a particular general ladger of a particular branches. This process executes after every month. This is a automated month-end process. I made few changes in the process to run the process branch-wise for faster execuation. 

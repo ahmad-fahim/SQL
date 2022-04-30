@@ -1,0 +1,1 @@
+Sometimes we needed to update the account level balance bacause for some network issue, system bug or manual update to the records. We had to rely on the transaction data in the system. There are many tables related to the account level balance.

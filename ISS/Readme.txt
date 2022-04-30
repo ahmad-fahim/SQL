@@ -1,0 +1,1 @@
+This is the SQL for the a huge report for central bank of Bangladesh. There are total 236 columns in the report for all the branches of a particular bank.

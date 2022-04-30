@@ -1,1 +1,1 @@
-After erery month-end we have to provide data to the customer for loan and deposit account in seperate template. We provide data to them in in txt or dump file format.
+After every month-end we have to provide data to the customer for loan and deposit account in seperate template. We provide data to them in in txt or dump file format.
