@@ -100,12 +100,12 @@ BEGIN
     enD if;
     v_brn_name := upper(trim(v_brn_name));
   
-    -- host(impdp SBLPROD/S0nAli1234 directory=DUMPDIR dumpfile=SONALI_MIG_9_23218_MONIRUMPUR_JESSORE_V3.DMP logfile=IMP_SONALI_MIG_9_23218_MONIRUMPUR_JESSORE_
+    -- host(impdp SBLPROD/*password* directory=DUMPDIR dumpfile=SONALI_MIG_9_23218_MONIRUMPUR_JESSORE_V3.DMP logfile=IMP_SONALI_MIG_9_23218_MONIRUMPUR_JESSORE_
     --V3.LOG remap_schema=SONALI_MIG_9:SBLPROD transform=oid:n IGNORE='Y')
    DBMS_OUTPUT.PUT_LINE(chr(10));
 	 
 	 IF P_ENV = 'P' THEN 
-    v_export := 'host(impdp SBLPROD/S0nAli1234 directory=DUMPDIR dumpfile=SONALI_MIG_' ||
+    v_export := 'host(impdp SBLPROD/*password* directory=DUMPDIR dumpfile=SONALI_MIG_' ||
                 LCNTR || '_' || V_COUNT || '_' || v_brn_name || '_v' ||
                 v_version_number || '.DMP logfile=IMP_SONALI_MIG_' || LCNTR|| '_' || V_COUNT || '_' || v_brn_name || '_v' ||
                 v_version_number || '.LOG remap_schema=SONALI_MIG_' || LCNTR ||':SBLPROD transform=oid:n IGNORE=''Y'')';
