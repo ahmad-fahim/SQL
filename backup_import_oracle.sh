@@ -12,6 +12,11 @@ TIMESTAMP=$(date +"%M%H%d%m%Y")  # MIHHDDMMYYYY format
 NEW_SCHEMA="${SCHEMA_NAME}_${TIMESTAMP}"
 DUMP_FILE="${SCHEMA_NAME}_backup_${TIMESTAMP}.dmp"
 
+
+echo "Deleting previous dump files..."
+find "$BACKUP_DIR" -type f -name "${SCHEMA_NAME}_backup*" -exec rm -f {} \;
+
+
 # Step 1: Drop the previous schema if it exists
 echo "Dropping previous schema if exists: ${SCHEMA_NAME}_*" 
 sqlplus -s system/oracle@localhost:1521/XE <<EOF
